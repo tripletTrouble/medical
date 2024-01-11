@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filament\Resources\Admission;
+namespace App\Filament\Admission\Resources;
 
 use App\Map\SexMap;
 use Filament\Forms;
@@ -31,8 +31,8 @@ use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\DatePicker;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
-use App\Filament\Resources\Admission\PatientResource\Pages;
-use App\Filament\Resources\Admission\PatientResource\RelationManagers;
+use App\Filament\Admission\Resources\PatientResource\Pages;
+use App\Filament\Admission\Resources\PatientResource\RelationManagers;
 
 class PatientResource extends Resource
 {

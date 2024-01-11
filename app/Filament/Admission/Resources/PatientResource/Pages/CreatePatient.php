@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Filament\Resources\Admission\PatientResource\Pages;
+namespace App\Filament\Admission\Resources\PatientResource\Pages;
 
-use App\Filament\Resources\Admission\PatientResource;
+use App\Filament\Admission\Resources\PatientResource;
 use App\Models;
 use App\Map;
 use Filament\Actions;

@@ -16,11 +16,10 @@ return new class extends Migration
             $table->tinyInteger('type');
             $table->string('first_name');
             $table->string('last_name');
-            $table->tinyInteger('identity_type');
             $table->string('identity_number')->unique();
             $table->tinyInteger('registration_type')->nullable();
             $table->string('registration_number')->nullable();
-            $table->string('details');
+            $table->json('details')->nullable();
             $table->softDeletes();
             $table->timestamps();
 

@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('insurances', function (Blueprint $table) {
+        Schema::create('polyclinic_practitioner', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->index();
-            $table->json('details')->nullable();
-            $table->softDeletes();
+            $table->foreignId('polyclinic_id')->constrained();
+            $table->foreignId('practitioner_id')->constrained();
             $table->timestamps();
         });
     }
@@ -25,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('insurances');
+        Schema::dropIfExists('polyclinic_practitioners');
     }
 };

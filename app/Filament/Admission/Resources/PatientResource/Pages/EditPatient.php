@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Filament\Resources\Admission\PatientResource\Pages;
+namespace App\Filament\Admission\Resources\PatientResource\Pages;
 
-use App\Filament\Resources\Admission\PatientResource;
+use App\Filament\Admission\Resources\PatientResource;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
 

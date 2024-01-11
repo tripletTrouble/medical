@@ -13,9 +13,10 @@ return new class extends Migration
     {
         Schema::create('services', function (Blueprint $table) {
             $table->id();
-            $table->string('service_code')->nullable()->index();
+            $table->string('code')->nullable()->index();
             $table->string('name')->index();
             $table->decimal('base_price', 20);
+            $table->softDeletes();
             $table->timestamps();
         });
     }
