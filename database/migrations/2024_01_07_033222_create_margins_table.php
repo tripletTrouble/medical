@@ -18,7 +18,13 @@ return new class extends Migration
             $table->string('factor_model')->nullable();
             $table->unsignedBigInteger('factor_model_id')->nullable();
             $table->decimal('amount', 5);
+            $table->softDeletes();
             $table->timestamps();
+
+            $table->index('type_model');
+            $table->index('type_model_id');
+            $table->index('factor_model');
+            $table->index('factor_model_id');
         });
     }
 

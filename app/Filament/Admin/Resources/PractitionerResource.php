@@ -3,6 +3,7 @@
 namespace App\Filament\Admin\Resources;
 
 use App\Map\SexMap;
+use App\Models\User;
 use Filament\Forms;
 use Filament\Tables;
 use Filament\Forms\Get;
@@ -84,7 +85,14 @@ class PractitionerResource extends Resource
                             'default' => 2
                         ]),
                 Section::make('Informasi Lain')
-                    ->schema([
+                ->schema([
+                        Select::make('user_id')
+                            ->label('Associated User')
+                            ->options(User::all()->pluck('name', 'id'))
+                            ->optionsLimit(7)
+                            ->searchable(),
+                        TextInput::make('details.ihs_number')
+                            ->label('IHS Number'),
                         TextInput::make('details.prefix')
                             ->label('Gelar Depan'),
                         Select::make('details.sex.code')
@@ -93,8 +101,6 @@ class PractitionerResource extends Resource
                             ->disablePlaceholderSelection(),
                         TextInput::make('details.suffix')
                             ->label('Gelar Belakang'),
-                        TextInput::make('details.ihs_number')
-                            ->label('IHS Number'),
                         TextInput::make('details.telephone.home')
                             ->label('Telepon Rumah')
                             ->default('+62')

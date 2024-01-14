@@ -18,4 +18,18 @@ class EditService extends EditRecord
             Actions\RestoreAction::make(),
         ];
     }
+
+    protected function mutateFormDataBeforeSave(array $data): array
+    {
+        $data['base_price'] = str_replace(',', '.', $data['base_price']);
+
+        return $data;
+    }
+
+    protected function mutateFormDataBeforeFill(array $data): array
+    {
+        $data['base_price'] = str_replace('.', ',', $data['base_price']);
+
+        return $data;
+    }
 }

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('identity_number')->unique();
             $table->tinyInteger('registration_type')->nullable();
             $table->string('registration_number')->nullable();
+            $table->foreignId('user_id')->nullable()->constrained();
             $table->json('details')->nullable();
             $table->softDeletes();
             $table->timestamps();

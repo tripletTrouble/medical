@@ -32,9 +32,8 @@ class ServiceResource extends Resource
                 TextInput::make('name')->label('Nama Layanan/Tindakan')
                     ->required(),
                 TextInput::make('base_price')->label('Tarif Dasar')
-                    ->mask(RawJs::make('$money($input)'))
-                    ->stripCharacters(',')
-                    ->numeric()
+                    ->mask(RawJs::make('$money($input, \',\')'))
+                    ->stripCharacters('.')
             ]);
     }
 

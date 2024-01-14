@@ -2,9 +2,10 @@
 
 namespace App\Filament\Admin\Resources\PractitionerResource\Pages;
 
-use App\Filament\Admin\Resources\PractitionerResource;
+use App\Map\SexMap;
 use Filament\Actions;
 use Filament\Resources\Pages\EditRecord;
+use App\Filament\Admin\Resources\PractitionerResource;
 
 class EditPractitioner extends EditRecord
 {
@@ -15,5 +16,14 @@ class EditPractitioner extends EditRecord
         return [
             Actions\DeleteAction::make(),
         ];
+    }
+
+    protected function mutateFormDataBeforeSave(array $data): array
+    {
+        if ($data['details']['sex']['code']) {
+            $data['details']['sex']['text'] = SexMap::getValue($data['details']['sex']['code']);
+        }
+
+        return $data;
     }
 }
