@@ -11,13 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('item_ledgers', function (Blueprint $table) {
+        Schema::create('item_stock_ledgers', function (Blueprint $table) {
             $table->id();
             $table->foreignId('item_dimension_id')->references('id')->on('item_dimensions')->restrictOnDelete()->restrictOnUpdate();
             $table->string('transaction_model_type');
-            $table->unsignedBigInteger('model_id');
-            $table->float('amount');
-            $table->float('stock');
+            $table->unsignedBigInteger('transaction_model_id');
+            $table->decimal('amount', 20);
             $table->softDeletes();
             $table->timestamps();
         });
